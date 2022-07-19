@@ -1,5 +1,6 @@
-<img class="rolo-logo" src="../assets/images/rolo-logo.svg" alt="rollover-logo" />
 
+<div class="form">
+  <img class="rolo-logo" src="../assets/images/rolo-logo.svg" alt="rollover-logo" />
 <form [formGroup]="addressFormGroup">
   <mat-form-field>
     <input
@@ -19,7 +20,7 @@
     </mat-autocomplete>
   </mat-form-field>
   <div *ngIf="addressFormGroup.get('state')!.value">
-    <input       
+    <input
       type="text"
       id="street"
       name="street"
@@ -27,7 +28,7 @@
       matInput
       formControlName="street"
     />
-    <input       
+    <input
       type="text"
       id="city"
       name="city"
@@ -35,7 +36,7 @@
       matInput
       formControlName="city"
     />
-    <input       
+    <input
       type="text"
       id="state"
       name="state"
@@ -44,6 +45,7 @@
       formControlName="state"
     />
   </div>
-    
+
 
 </form>
+</div>

@@ -7,3 +7,27 @@
   height: 200px;
   width: 200px;
 }
+
+.form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* form {
+  align-content: center;
+  justify-content: center;
+} */
+
+::ng-deep #cdk-overlay-0 {
+  min-width: 950px;
+}
+
+::ng-deep div.mat-form-field-flex.ng-tns-c77-0 > div {
+  width: 220px;
+}
+
+#mat-option-9 {
+  border-color: black;
+}
