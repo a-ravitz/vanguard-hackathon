@@ -14,5 +14,9 @@ export class FormComponent implements OnInit {
     this.options = [];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.address.valueChanges.subscribe((input) => {
+      console.log(input);
+    });
+  }
 }

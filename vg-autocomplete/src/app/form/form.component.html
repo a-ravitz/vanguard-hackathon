@@ -5,10 +5,11 @@
     type="text"
     id="address"
     name="address"
-    placeholder="Enter Location"
+    placeholder=""
     matInput
     [formControl]="address"
     [matAutocomplete]="auto"
+    onfocus="this.placeholder = ''"
   />
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option *ngFor="let option of options" [value]="option">
