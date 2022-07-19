@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
+import { AutoCompleteService } from './services/google.service';
 
 @NgModule({
   declarations: [AppComponent, FormComponent],
@@ -17,7 +18,7 @@ import { AngularMaterialModule } from './angular-material.module';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AutoCompleteService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
