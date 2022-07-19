@@ -1,10 +1,10 @@
 import axios from 'axios';
-
+import { key } from '../../../key';
 export class AutoCompleteService {
   autoComplete(res: string) {
     var config = {
       method: 'get',
-      url: '',
+      url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input${res}&types=address&key=${key}`,
       headers: {},
     };
 
