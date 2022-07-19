@@ -8,18 +8,30 @@ import { AutoCompleteService } from '../services/google.service';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  address = new FormControl();
+  // address = new FormControl();
   options: string[];
+  addressFormGroup: FormGroup<{ address: FormControl<string | null>; street: FormControl<string | null>; city: FormControl<string | null>; state: FormControl<string | null>; }>;
 
-  constructor(private formBuilder: FormBuilder, private autoCompleteService: AutoCompleteService) {
+  constructor(private formbuilder: FormBuilder, private autoCompleteService: AutoCompleteService) {
     this.options = [];
+    this.addressFormGroup = this.formbuilder.group({
+      address:[''],
+      street: [''],
+      city: [''],
+      state: [''],
+    })
   }
 
   ngOnInit(): void {
-    this.address.valueChanges.subscribe((input) => {
-      console.log(input);
-
-      this.autoCompleteService.autoComplete(input)
+    this.addressFormGroup.get("address")!.valueChanges.subscribe((input) => {
+      // this.options = this.autoCompleteService.autoComplete(input)
+      this.autoCompleteService.autoComplete(input!).then((prediction:any) => {
+        this.options = prediction.predictions.map((pred:any) => pred.description)
+      })
+      this.addressFormGroup.patchValue({street: input?.split(",")[0]})
+      this.addressFormGroup.patchValue({city: input?.split(",")[1]})
+      this.addressFormGroup.patchValue({state: input?.split(",")[2]})
+      // this.addressFormGroup.= input?.split(",")
     });
   }
 }

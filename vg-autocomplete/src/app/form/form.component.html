@@ -1,19 +1,49 @@
-<img src="../assets/images/coollogo_com-288941333.png" alt="rollover-logo" />
+<img class="rolo-logo" src="../assets/images/rolo-logo.svg" alt="rollover-logo" />
 
-<mat-form-field>
-  <input
-    type="text"
-    id="address"
-    name="address"
-    placeholder=""
-    matInput
-    [formControl]="address"
-    [matAutocomplete]="auto"
-    onfocus="this.placeholder = ''"
-  />
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of options" [value]="option">
-      {{ option }}
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
+<form [formGroup]="addressFormGroup">
+  <mat-form-field>
+    <input
+      type="text"
+      id="address"
+      name="address"
+      placeholder=""
+      matInput
+      formControlName="address"
+      [matAutocomplete]="auto"
+      onfocus="this.placeholder = ''"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <div *ngIf="addressFormGroup.get('state')!.value">
+    <input       
+      type="text"
+      id="street"
+      name="street"
+      placeholder="street"
+      matInput
+      formControlName="street"
+    />
+    <input       
+      type="text"
+      id="city"
+      name="city"
+      placeholder="city"
+      matInput
+      formControlName="city"
+    />
+    <input       
+      type="text"
+      id="state"
+      name="state"
+      placeholder="state"
+      matInput
+      formControlName="state"
+    />
+  </div>
+    
+
+</form>
